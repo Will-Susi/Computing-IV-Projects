@@ -1,0 +1,62 @@
+\section{ps7: Kronos Log Parsing}\label{sec:ps7}
+
+\subsection{Overview}\label{sec:ps7:overview} % A discussion of the assignment itself
+
+This project parses a log file using regular expressions and outputs a report file.
+
+\subsection{End Product}\label{sec:ps7:accomplish} % What I accomplished and images/results
+
+Below is the output.
+This is the end portion of a report file.
+It shows the final started and completed boots of a log file.
+\bigskip
+=== Device boot ===
+41684(device5\_intouch.log): 2014-02-03 12:45:46 Boot Start
+**** Incomplete boot **** 
+\bigskip
+=== Device boot ===
+41694(device5\_intouch.log): 2014-02-03 14:02:34 Boot Start
+41802(device5\_intouch.log): 2014-02-03 14:05:18 Boot Completed
+	Boot Time: 164000ms
+
+\subsection{What I Already Knew}\label{sec:ps7:knew} % What was known prior to the assignment
+
+I knew how to parse through an input file in C++.
+
+\subsection{Design Decisions and Implementations}\label{sec:ps7:decisions} % Important decisions or implementations I made
+
+There wasn't a need for a class or an outside file so everything was done in main.
+First two regex expressions were made to properly detect start and complete boots.
+Each line from the log file was checked against tahese expressions.
+When a boot started it was written to the report file with a date and time.
+If a boot had already started and another boot was encountered before a complete boot an incomplete boot was written to the report file following the previous boot. 
+The new boot was then written to the file with a date and time.
+If a completion was encountered following a boot it was written to the file with a date and time.
+The boot time between the start and completion was computed via the 'convertTime' function and was also added to the report.
+This function took two date/time strings, made them ptime objects, subtracted them, and converted the computed time to milliseconds.
+Once the whole log file was parsed, a summary was added to the beginning of the report indicating the total lines read, the total of boots started, and the total of completed boots.
+
+\subsection{What I Learned}\label{sec:ps7:learned} % What I learned because of the assignment
+
+I learned what regular expression were and how useful they are for parsing and finding important parts from large amount of data
+
+\subsection{Challenges}\label{sec:ps7:challenges} % Challenges along the way and any that went unresolved
+
+I had a little trouble at the start of where to start because it felt a bit daunting, but once I started it was pretty simple.
+I also had some general trouble with the regex and time/date libraries because the API is really bad and hard to follow,
+so some functions used from them took a second to get right.
+
+\newpage
+\subsection{Codebase}\label{sec:ps7:code} % Code: Makefile, .cpp main, .hpp main, .cpp support, .hpp support, .cpp tests
+
+\bigskip
+\title{\large Makefile:}
+\lstinputlisting{../ps7/Makefile}
+\bigskip
+\title{\large main.cpp:}
+\lstinputlisting{../ps7/main.cpp}
+\bigskip
+\title{\large Checkers.cpp:}
+\lstinputlisting{../ps7/main.hpp}
+
+\newpage

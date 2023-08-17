@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+
+\author{William Susi}
+\date{Spring 2023}
+\newcommand{\secno}{202}
+\newcommand{\timetocomplete}{14 Hours}
+
+% Packages
+\usepackage[T1]{fontenc} % Some font fixes
+\usepackage{amsmath, amssymb, amsthm} % Allows extra math commands
+\usepackage{listings} % Allows importing code
+\usepackage{subcaption} % Helps with figures
+\usepackage{graphicx} % Allows including images
+\usepackage[dvipsnames,table]{xcolor} % Helps with manipulating colors
+\usepackage{hyperref} % Link to web pages
+\usepackage[legalpaper, margin=1in]{geometry} % Adjusts page margins
+
+% Settings for portfolio
+\title{Computing IV Sec \secno: Project Portfolio}
+\setcounter{tocdepth}{1}
+
+% Formatting style for code
+\definecolor{backcolour}{rgb}{0.92,0.92,0.90}
+\lstdefinestyle{cppcode}{
+	language=c++,
+	%basicstyle=\footnotesize\ttfamily,
+	basicstyle=\ttfamily,
+	commentstyle=\color{Green},
+	tabsize=4,
+	columns=flexible,
+	keepspaces=true,
+	numbers=left,
+	keywordstyle=\color{Blue},
+	stringstyle=\color{Maroon},
+	showstringspaces=false,
+	backgroundcolor=\color{backcolour},
+	frame=single,
+	breaklines=true
+}
+\lstset{style=cppcode}
+% Get images from figures directory
+\graphicspath{ {./images/} }
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\vfill
+Time to Complete Portfolio: \timetocomplete
+
+\newpage
+
+% ADD INCLUDES FOR PROJECTS
+\include{ps0} 
+\include{ps1}
+\include{ps2}
+\include{ps3}
+\include{ps4}
+\include{ps5}
+\include{ps6}
+\include{ps7}
+
+\end{document}

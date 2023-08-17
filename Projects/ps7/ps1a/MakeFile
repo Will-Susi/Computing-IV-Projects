@@ -1,0 +1,24 @@
+CC = g++
+CFLAGS = --std=c++17 -Wall -Werror -pedantic
+DEPS = FibLFSR.hpp
+OBJ = FibLFSR.o
+LIB = -lboost_unit_test_framework
+
+.PHONY: all clean lint
+
+all: ps1a test
+
+%.o: %.cpp $(DEPS)
+	$(CC) $(CFLAGS) -c $<
+
+ps1a: main.o $(OBJ)
+	$(CC) $(CFLAGS) -o ps1a $^ $(LIB)
+
+test: test.o $(OBJ)
+	$(CC) $(CFLAGS) -o test $^ $(LIB)
+
+clean:
+	rm *.o ps1a test
+
+lint:
+	cpplint *.cpp *.hpp
